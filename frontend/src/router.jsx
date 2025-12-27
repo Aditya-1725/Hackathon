@@ -8,6 +8,7 @@ import EquipmentRequests from "./pages/EquipmentRequests";
 import History from "./pages/History";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Teams from "./pages/Teams";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 import RoleRoute from "./components/RoleRoute";
@@ -44,11 +45,19 @@ const Router = () => {
           </RoleRoute>
         }
       />
+      <Route
+        path="/teams"
+        element={
+          <RoleRoute roles={["manager"]}>
+            <Teams />
+          </RoleRoute>
+        }
+      />
 
       <Route
         path="/calendar"
         element={
-          <RoleRoute roles={["manager","technician"]}>
+          <RoleRoute roles={["manager", "technician"]}>
             <Calendar />
           </RoleRoute>
         }
